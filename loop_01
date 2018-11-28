@@ -57,3 +57,18 @@ while (!(dice_1 == 1 && dice_2 == 1)) {
 document.write ("After " + counter + " rolls, you rolled snake eyes")
 
 
+
+//3.
+
+
+
+
+
+
+
+
+
+
+
+
+
