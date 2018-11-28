@@ -1,1 +1,18 @@
 
+// 1.   Have a user enter numbers repeatedly until -1 is entered. In the end, display how many times the user has entered odd number
+//INCLUDE COMMENTS
+
+var num, times;
+
+times = 0;
+
+while (num != -1){
+  num = parseFloat(prompt("Enter a number"));
+  if (num % 2 != 0  &&  num != -1){
+  times++;
+  }
+}
+
+document.write("Number of times you entered odd number: " + times);
+
+
