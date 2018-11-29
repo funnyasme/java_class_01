@@ -59,6 +59,71 @@ document.write ("After " + counter + " rolls, you rolled snake eyes")
 
 
 //3.
+/*
+var cnum, num, counter;
+num=-1;
+cnum=Math.ceil(Math.random()*6);
+counter = 1;
+alert(cnum)
+
+while (num != cnum && counter <= 6){
+  num = parseInt(prompt("Enter a number between 1 and 50"));
+  if (num < cnum){
+    alert("Too low");
+  }
+  else if (num > cnum){
+    alert("Too high");
+  }
+  counter++;
+}
+if(num == cnum){
+  document.write("You guessed this many times: " + (counter-1))
+}
+else{
+  document.write("You guessed 6 times. You Lose. The number was: "+cnum);
+}
+*/
+
+
+// 4.
+/*
+var comp, player, winComp, winPlayer;
+winComp = 0;
+winPlayer = 0;
+
+while (winComp < 3 && winPlayer < 3){
+  comp = Math.ceil(3*Math.random());
+  player = parseInt(prompt("Enter 1(rock), 2(paper), or 3(scissors)"));
+  
+
+  winCom++;
+  winPlayer++
+  
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
