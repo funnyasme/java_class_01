@@ -1,0 +1,138 @@
+// 1.   Have a user enter numbers repeatedly until -1 is entered. In the end, display how many times the user has entered odd number
+//INCLUDE COMMENTS
+
+/*
+
+var num, times;  // creating variables: num for the number user enters, times to keep track of how many times an odd number was entered
+num = 0;         // initial value = 0 for both vars
+times = 0;
+
+while (num != -1){      // repeats to enter a number until -1 is entered
+  num = parseFloat(prompt("Enter a number"));
+  if (num % 2 != 0  &&  num != -1){  // if the number is odd and not equal to -1 keep going and add 1 to times each time this is true
+  times++;
+  }
+}
+
+document.write("Number of times you entered odd number: " + times);  // to show user number of times they entered odd number
+
+*/
+
+
+
+//  2.  How many times do you have to roll a pair of dice before they come up snake eyes? Write a computer program that uses a while loop to simulate this experiment. The program should report the number of rolls that it makes before the dice come up snake eyes.
+
+/* // Another way to solve
+
+var dice_1, dice_2, counter, gotU; // dice_1 for its roll result, dice_2 for its roll result, counter to count how many times dice were rolled before they came up with snake eyes, gotU to keep track that if snake eyes are rolled, they have been "gotten"/achieved(useful in while loop)
+
+dice_1 = 0;  // initializing each var value with 0 for each var
+dice_2 = 0;
+counter = 0;
+gotU = 0;     
+
+while (gotU == 0) {   // while snake eyes have not been gotten, keep generating a random integer from 1-6
+  dice_1 = Math.ceil(6*Math.random());//generate random integer # 1,2,3,4,5,6
+  dice_2 = Math.ceil(6*Math.random());//generate random integer # 1,2,3,4,5,6
+  document.write (dice_1 + " " + dice_2 + "<br>") //print the roll results
+  if (dice_1 == 1 && dice_2 == 1) {  // if the roll results of the dice are both 1, the gotU variable adds 1 because snake eyes have been achieved
+     gotU = 1;
+  }
+  counter++; // keeping track of how many times dice were rolled
+}
+
+document.write ("After " + counter + " rolls, you rolled snake eyes") // shows user how many rolls they did until snake eyes
+
+*/
+
+/*
+
+var dice_1, dice_2, counter;
+dice_1 = 0;
+dice_2 = 0;
+counter = 0;
+
+//while (dice_1 != 1 || dice_2 != 1) {    another way
+while (!(dice_1 == 1 && dice_2 == 1)) {
+  dice_1 = Math.ceil(6*Math.random());//integer # 1,2,3,4,5,6
+  dice_2 = Math.ceil(6*Math.random());//integer # 1,2,3,4,5,6
+  document.write (dice_1 + " " + dice_2 + "<br>")
+  counter++;
+}
+
+document.write ("After " + counter + " rolls, you rolled snake eyes")
+
+*/
+
+
+
+
+// 3. (Guessing a number game). Repeatedly ask the user to guess a number between 1 and 50. After he enters the number, the program should display if the number is “too high” or “too low”. If the user enters the correct number, exit the loop and display the number of guesses. If the user doesn’t guess the number after 6 guesses, exit the loop, show “You lose” and display the secret number
+/*
+var cnum, num, counter;
+num=-1;
+cnum=Math.ceil(Math.random()*6);
+counter = 1;
+alert(cnum)
+
+while (num != cnum && counter <= 6){
+  num = parseInt(prompt("Enter a number between 1 and 50"));
+  if (num < cnum){
+    alert("Too low");
+  }
+  else if (num > cnum){
+    alert("Too high");
+  }
+  counter++;
+}
+if(num == cnum){
+  document.write("You guessed this many times: " + (counter-1))
+}
+else{
+  document.write("You guessed 6 times. You Lose. The number was: "+cnum);
+}
+*/
+
+
+// 4. (Man vs Computer -Rock-paper-scissors game). Write a Rock-Paper-Scissors program where the user will be playing versus the computer. Repeat the game until either the user or the computer wins 3 points (tie=0 points, win=1 point).  Hint: Generate a random number (1,2 or 3). 1-Rock, 2-Paper, 3-Scissors 
+//CAMELCASE+COMMENTS
+
+var comp, player, winComp, winPlayer;
+winComp = 0;
+winPlayer = 0;
+
+while (winComp < 3 && winPlayer < 3){
+  comp = Math.ceil(3*Math.random());
+  player = parseInt(prompt("Enter 1(rock), 2(paper), or 3(scissors)"));
+
+  while (player > 3 || player < 1 || isNaN(player)){
+    player = parseInt(prompt("wrong input. Enter 1(rock), 2(paper), or 3(scissors)"));
+  }
+  //alert each time wat they played+who won that round
+  //document.write("comp = " + comp + "   player = " + player + "<br>");
+  
+  //alert("comp = " + comp + "   player = " + player);
+  
+  if (comp == player){
+    alert("comp = " + comp + "   player = " + player + " it is a tie.");
+    document.write("comp = " + comp + "   player = " + player + " it is a tie." + "<br>");
+  }
+  else if (comp - player == 1 || comp - player == -2){
+    winComp++;
+    alert("comp = " + comp + "   player = " + player + " Computer wins.");
+    document.write("comp = " + comp + "   player = " + player + " Computer wins. " + "<br>");
+  }
+  else {
+    winPlayer++;
+    alert("comp = " + comp + "   player = " + player + " Player wins. ");
+    document.write("comp = " + comp + "   player = " + player + " Player wins. " + "<br>");
+  } 
+}
+
+if (winPlayer == 3){
+  document.write("Player wins")
+}
+else{
+  document.write("Computer wins")
+}
+
