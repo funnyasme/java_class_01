@@ -42,3 +42,18 @@ document.write("the even array is: ", arrEven);
 document.write("<br> the odd array is: ", arrOdd);
 </script>
 
+//question 3
+var mark;
+var nums=[5,6,4,4,3,5,6,7,5,3,5,6,4,3,5,7,4,4,7,3,7,8,9,3,2,5];
+mark = parseInt(prompt("Enter a mark as int"))
+var pos = 0;
+var posFrom = 0
+var i = 0;
+
+while (pos != -1){
+   pos = nums.indexOf(mark,posFrom)
+   posFrom = pos + 1    
+   i++
+}
+
+document.write("the frequency is: ", i-1);
