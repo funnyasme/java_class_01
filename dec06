@@ -18,3 +18,27 @@ document.write("<br>", "The highest mark is: ", Math.max.apply(Math, arr));
 
 document.write("<br>", "The following marks are divisible by 5:", arr5);
         
+
+
+//question 2
+<script>
+var mark;
+var arrOdd = [];
+var arrEven = [];
+mark = parseInt(prompt("Enter an int"))
+
+while (mark != 0){
+   if (mark % 2 == 0){
+      arrEven.push(mark);      
+   }
+   else{
+      arrOdd.push(mark)
+   }
+   
+   mark = parseInt(prompt("Enter a mark as int"));
+}
+
+document.write("the even array is: ", arrEven);
+document.write("<br> the odd array is: ", arrOdd);
+</script>
+
