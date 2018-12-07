@@ -45,7 +45,7 @@ document.write("<br> the odd array is: ", arrOdd);
 //question 3
 var mark;
 var nums=[5,6,4,4,3,5,6,7,5,3,5,6,4,3,5,7,4,4,7,3,7,8,9,3,2,5];
-mark = parseInt(prompt("Enter a mark as int"))
+mark = parseInt(prompt("Enter an int between 1 to 9"))
 var pos = 0;
 var posFrom = 0
 var i = 0;
