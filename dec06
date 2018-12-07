@@ -1,0 +1,20 @@
+// question 1
+var mark;
+var arr = [];
+var arr5 = [];
+mark = parseInt(prompt("Enter a mark as int"))
+
+while (mark != -1){
+   arr.push(mark);
+   if (mark % 5 == 0){
+      arr5.push(mark);      
+   }
+   mark = parseInt(prompt("Enter a mark as int"));
+}
+
+document.write("the array is: ", arr);
+
+document.write("<br>", "The highest mark is: ", Math.max.apply(Math, arr));
+
+document.write("<br>", "The following marks are divisible by 5:", arr5);
+        
