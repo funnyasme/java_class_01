@@ -1,0 +1,34 @@
+// factorial using 1. looping and 2. recursion
+
+/*
+// 1. looping
+var x, result = 1;
+
+x = prompt("Enter an int")
+while (x > 1){
+  result = result * x 
+  x = x - 1
+}
+document.write(result)
+*/
+
+
+// 2. recursion
+
+
+function factorial(x){
+  document.write("<br> at top x = ", x)
+  if (x == 1){
+    result = 1
+    document.write("<br> at base case: x = ", x, " result = ", result)
+    return result
+  } 
+  else {
+    result = x * factorial(x - 1)
+    document.write("<br> at recursive case: x = ", x, " result = ", result)
+    return result
+  }
+}
+
+x = prompt("Enter an int")
+document.write("<br>", factorial(x))
