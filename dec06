@@ -1,3 +1,5 @@
+
+/*
 // question 1
 var mark;
 var arr = [];
@@ -6,7 +8,7 @@ mark = parseInt(prompt("Enter a mark as int"))
 
 while (mark != -1){
    arr.push(mark);
-   if (mark % 5 == 0){
+   if (mark != 0 && mark % 5 == 0){
       arr5.push(mark);      
    }
    mark = parseInt(prompt("Enter a mark as int"));
@@ -14,14 +16,14 @@ while (mark != -1){
 
 document.write("the array is: ", arr);
 
-document.write("<br>", "The highest mark is: ", Math.max.apply(Math, arr));
+arr.sort();
+document.write("<br>", "The highest mark is: ", arr[arr.length-1]);
 
 document.write("<br>", "The following marks are divisible by 5:", arr5);
         
 
-
 //question 2
-<script>
+
 var mark;
 var arrOdd = [];
 var arrEven = [];
@@ -40,7 +42,7 @@ while (mark != 0){
 
 document.write("the even array is: ", arrEven);
 document.write("<br> the odd array is: ", arrOdd);
-</script>
+
 
 //question 3
 var mark;
@@ -57,3 +59,34 @@ while (pos != -1){
 }
 
 document.write("the frequency is: ", i-1);
+
+
+// question 4
+var word, arr = [], arrOut = [], i = 0 ;
+word = prompt("Enter a word") ;
+arr = word.split("") ;
+
+while(i < arr.length){
+  if (arrOut.indexOf(arr[i]) == -1){
+  arrOut.push(arr[i]) ; 
+  }
+  i++ ;
+}
+
+document.write(word, "<br>") ;
+document.write(arrOut) ;
+
+*/
+
+// question 4 - alternative
+var word, arr = [] ;
+word = prompt("Enter a word") ;
+
+for (var i = 0; i < word.length; i++) {
+  if (arr.indexOf(word.charAt(i)) == -1){
+     arr.push(word.charAt(i)) ;
+  }
+}
+
+document.write(word, "<br>") ;
+document.write(arr) ;
