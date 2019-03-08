@@ -1,0 +1,154 @@
+int p1=0;
+int p2=0;
+int p1y=250;
+int p2y=250;
+
+int x=400;
+int y=300;
+
+int xspeed=int(random(-5,5));
+int yspeed=int(random(-5,5));
+
+boolean[] keys=new boolean[128];
+
+void moveBall(){
+  x=x+xspeed;
+  y=y+yspeed;
+}
+
+void showScore(){
+  fill(255,255,255);
+  text("Pong",370,30);
+  text("P1:"+p1,20,30);
+  text("P2:"+p2,700,30); 
+}
+void drawBall(){
+   fill(255,255,0);
+   ellipse(x,y,20,20);
+}
+
+void checkWinner(){
+  if (p1>2){
+     text("P1 wins",350,300); 
+     xspeed=0;
+     yspeed=0;
+  }
+  else if (p2>2){
+    text("P2 wins",350,300); 
+    xspeed=0;
+     yspeed=0;
+  }
+}
+
+void bounce(){
+  //right edge
+  if (x>width){
+    p1++;
+    x=400;
+    y=300;
+    xspeed=int(random(-5,5));
+    while (xspeed==0){
+      xspeed=int(random(-5,5));
+    }
+    yspeed=int(random(-5,5)); 
+  }
+  
+  //left edge
+  if (x<0){
+    p2++;
+    x=400;
+    y=300;
+    xspeed=int(random(-5,5));
+    while (xspeed==0){
+      xspeed=int(random(-5,5));
+    }
+    yspeed=int(random(-5,5)); 
+  }
+
+  if (y>height || y<0){
+    yspeed=-yspeed;
+  }
+}
+
+void drawP1(){
+  fill(0,255,0);
+  rect(20,p1y,30,100);
+}
+
+void drawP2(){
+  fill(255,0,0);
+  rect(750,p2y,30,100);
+}
+/*
+void controlP1(){
+  if (keyPressed && key=='w' && p1y>2){
+     p1y-=4;//move player1 4 pixels up 
+  }
+  if (keyPressed && key=='s' && p1y<498 ){
+     p1y+=4;//move player1 4 pixels down
+  }
+}
+
+void controlP2(){
+  if (keyPressed && key==CODED && keyCode==UP && p2y>2){
+     p2y-=4;//move player2 4 pixels up 
+  }
+  if (keyPressed && key==CODED && keyCode==DOWN && p2y<498){
+     p2y+=4;//move player2 4 pixels down
+  }
+}
+*/
+
+void setup(){
+  size(800,600);
+  textSize(30);
+  
+  //we want to prevent xspeed to have the value of 0 (zero)
+  while (xspeed==0){
+    xspeed=int(random(-5,5)); 
+  }
+} 
+void moveP1(){
+  //left paddle
+  if (keys[87] && p1y>2){
+     p1y-=4; 
+  }
+  if (keys[83] && p1y<498){
+    p1y+=4;
+  }
+}
+
+void moveP2(){
+  //left paddle
+  if (keys[38] && p2y>2){
+     p2y-=4; 
+  }
+  if (keys[40] && p2y<498){
+    p2y+=4;
+  }
+}
+
+void draw(){
+  background(0);
+  moveBall();
+  bounce();
+  moveP1();
+  moveP2();
+  //controlP1();
+  //controlP2();
+  drawBall();
+  drawP1();
+  drawP2();
+  showScore();
+  checkWinner();
+}
+
+void keyPressed(){
+   //println("you pressed "+keyCode);
+   keys[keyCode]=true;
+}
+
+void keyReleased(){
+   //println("you released "+keyCode);
+   keys[keyCode]=false;
+}
